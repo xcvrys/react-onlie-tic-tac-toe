@@ -1,6 +1,7 @@
 @font-face {
   font-family: "DirtyHarold";
-  src: local("DirtyHarold"), url(./DirtyHarold-8MvpM.ttf) format("truetype");
+  src: local("DirtyHarold"),
+    url(./assets/DirtyHarold-8MvpM.ttf) format("truetype");
 }
 
 :root {
