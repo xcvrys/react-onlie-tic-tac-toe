@@ -1,0 +1,276 @@
+@font-face {
+  font-family: "DirtyHarold";
+  src: local("DirtyHarold"), url(./DirtyHarold-8MvpM.ttf) format("truetype");
+}
+
+:root {
+  font-family: "DirtyHarold";
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+
+  min-width: 320px;
+  background-image: url("https://raw.githubusercontent.com/Beekey/tictactoe/master/images/woodBackground.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  display: grid;
+  place-items: center;
+}
+
+button {
+  all: unset;
+  font-size: 2rem;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  transition: all 0.3s;
+  &:hover {
+    scale: 1.02;
+  }
+}
+
+input {
+  all: unset;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border: 2px solid #000;
+  border-radius: 5px;
+  min-width: 300px;
+}
+
+footer {
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.app {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  gap: 0.35rem;
+}
+
+.formOr {
+  font-size: 1.75rem;
+}
+.FormLogo {
+  width: clamp(300px, 90vw, 1042px);
+  height: clamp(71px, 21.3vw, 249px);
+
+  filter: drop-shadow(0 0 5px #000);
+  transition: all 0.3s;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  pointer-events: none;
+}
+
+.paper {
+  display: grid;
+  place-items: center;
+
+  width: clamp(300px, 90vw, 700px);
+  height: clamp(300px, 90vw, 500px);
+
+  background-image: -webkit-repeating-linear-gradient(
+      left,
+      lightblue,
+      1px,
+      transparent 1px,
+      transparent 20px
+    ),
+    -webkit-repeating-linear-gradient(bottom, lightblue, 1px, white 1px, white
+          20px);
+
+  background-image: repeating-linear-gradient(
+      90deg,
+      lightblue,
+      1px,
+      transparent 1px,
+      transparent 20px
+    ),
+    repeating-linear-gradient(0deg, lightblue, 1px, white 1px, white 20px);
+  background-size: 20px 20px;
+  background-origin: content-box;
+  padding: 1em auto;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5), 0 0 50px rgba(0, 0, 0, 0.1) inset;
+
+  box-shadow: -3px 15px 12px #777;
+  transform: rotate(-3deg);
+
+  justify-content: space-evenly;
+  align-content: space-evenly;
+}
+
+.paperInsider > div {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: clamp(300px, 70vw, 450px);
+  height: clamp(300px, 70vw, 400px);
+
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.paperInsider {
+  transform: rotate(-3deg);
+}
+.paperInsider > svg {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  top: 47%;
+  left: 56%;
+  transform: translate(-50%, -50%) rotate(1deg);
+  position: fixed;
+  fill: #000;
+  width: clamp(300px, 80vw, 500px);
+  height: clamp(300px, 80vw, 400px);
+}
+
+.square {
+  position: relative;
+  display: grid;
+  place-items: center;
+  /* background-color: #00000033; */
+  height: clamp(50px, 12vw, 80px);
+  width: clamp(50px, 12vw, 80px);
+  cursor: pointer;
+  z-index: +1;
+
+  color: #000;
+  font-size: clamp(2.5rem, 10vw, 4rem);
+  font-weight: bold;
+}
+
+.roomID > span {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltiptext {
+  font-size: 1rem;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip .tooltiptext {
+  width: 120px;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+
+  height: 200px;
+  width: 300px;
+
+  background-image: -webkit-repeating-linear-gradient(
+      left,
+      lightblue,
+      1px,
+      transparent 1px,
+      transparent 20px
+    ),
+    -webkit-repeating-linear-gradient(bottom, lightblue, 1px, white 1px, white
+          20px);
+
+  background-image: repeating-linear-gradient(
+      90deg,
+      lightblue,
+      1px,
+      transparent 1px,
+      transparent 20px
+    ),
+    repeating-linear-gradient(0deg, lightblue, 1px, white 1px, white 20px);
+  background-size: 20px 20px;
+  background-origin: content-box;
+  padding: 1em auto;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5), 0 0 50px rgba(0, 0, 0, 0.1) inset;
+
+  box-shadow: -3px 15px 12px #777;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(6deg);
+
+  font-size: 1.5rem;
+}
+
+.errorInput {
+  color: #c2171e;
+  font-size: 1.5rem;
+  border: 2px solid #c2171e;
+}
+.error {
+  color: #c2171e;
+  font-size: 1.5rem;
+}
